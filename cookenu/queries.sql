@@ -1,3 +1,4 @@
+-- Active: 1674237184378@@35.226.146.116@3306@jbl-4415982-rafael-lopes
 CREATE TABLE Architecture_User (
 	id VARCHAR(255) PRIMARY KEY, 
     name VARCHAR(255) NULL, 
