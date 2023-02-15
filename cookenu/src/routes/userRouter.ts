@@ -1,9 +1,14 @@
 import { UserController } from './../controller/UserController';
 import express from "express";
+import { UserBusiness } from '../business/UserBusiness';
+import { UserDatabase } from '../data/UserDatabase';
 
-const userController=new UserController();
+export const userRouter = express.Router();
 
-export const userRouter= express.Router();
+const userDabase = new UserDatabase()
+const userBusiness = new UserBusiness(userDabase)
+const userController = new UserController(userBusiness);
 
-userRouter.get("/getAll",userController.getUsers)
-userRouter.post("/create",userController.createUser)
+
+userRouter.get("/getAll", (req, res) => userController.getUsers(req, res))
+userRouter.post("/create", (req, res) => userController.createUser(req, res))
