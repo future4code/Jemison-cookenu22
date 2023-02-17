@@ -6,9 +6,8 @@ POST http://localhost:3003/user/create
 Content-Type: application/json
 
 {
-    "name": "JuniorPrado2202",
-    "nickname": "Junim2202",
-    "email": "jr2220@.com",
+    "name": "Rafael Lopes",
+    "email": "rafael@email.com",
     "password": "123456",
     "id": "kiaqsfkansf",
     "vouQuebrarisso": true
