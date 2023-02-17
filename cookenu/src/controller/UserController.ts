@@ -14,6 +14,9 @@ export class UserController {
             // Cria instância
             const userBusiness = new UserBusiness()
 
+            // Chama o método userBusiness
+            await userBusiness.createUser(input)
+
             res.status(201).send({ message: "Usuário criado!" })
         } catch (error: any) {
             res.status(400).send(error.message)
