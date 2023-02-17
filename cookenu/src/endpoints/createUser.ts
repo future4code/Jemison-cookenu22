@@ -14,7 +14,7 @@ export const createUser = async (
          !email ||
          !password
       ) {
-         throw new Error('Preencha os campos "name","nickname", "email" e "password"')
+         throw new Error('Preencha os campos "name","email" e "password"')
       }
 
       const id: string = Date.now().toString()
