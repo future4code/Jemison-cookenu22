@@ -4,7 +4,8 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 export abstract class BaseDatabase{
-    connection = knex({
+    
+   protected static connection = knex({
         client: 'mysql',
         connection: {
            host: process.env.DB_HOST,
