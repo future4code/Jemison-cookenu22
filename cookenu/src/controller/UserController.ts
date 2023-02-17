@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { UserBusiness } from "../business/UserBusiness";
 
 export class UserController {
 
@@ -9,6 +10,9 @@ export class UserController {
                 email: req.body.email,
                 password: req.body.password
             };
+
+            // Cria instância
+            const userBusiness = new UserBusiness()
 
             res.status(201).send({ message: "Usuário criado!" })
         } catch (error: any) {
