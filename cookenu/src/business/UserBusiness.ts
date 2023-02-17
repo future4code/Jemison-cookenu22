@@ -13,14 +13,13 @@ export class UserBusiness {
 
    public createUser = async (input: UserInputDTO) => {
       try {
-         const { name, nickname, email, password } = input
+         const { name, email, password } = input
          if (
             !name ||
-            !nickname ||
             !email ||
             !password
          ) {
-            throw new CustomError(400, 'Preencha os campos "name","nickname", "email" e "password"')
+            throw new CustomError(400, 'Preencha os campos "name","email" e "password"')
          }
 
          if (!email.includes("@")) {
@@ -36,7 +35,6 @@ export class UserBusiness {
          const user: user = {
             id,
             name,
-            nickname,
             email,
             password
          }
