@@ -1,9 +1,12 @@
-import { app } from "./app"
-import { createUser } from './endpoints/createUser'
+import { app } from "./app";
+import { UserController } from "./controller/UserController";
+
 import { createTask } from './endpoints/createTask'
 
+const userController = new UserController();
 
-app.post('/create/user', createUser)
+
+app.post('/create/user', userController.createUser)
 
 app.post('/task', createTask)
 
