@@ -14,7 +14,6 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
          await UserDatabase.connection.insert({
             id: user.id,
             name: user.name,
-            nickname: user.nickname,
             email: user.email,
             pass_word: user.password
          }).into(this.userTable)
@@ -29,7 +28,7 @@ export class UserDatabase extends BaseDatabase implements UserRepository {
 
    public getUsers = async (): Promise<user[]> => {
       try {
-         //inia conexão
+         //inicia a conexão
          UserDatabase.connection.initialize()
 
          const allUsers = await UserDatabase.connection.select().from('Architecture_User');
