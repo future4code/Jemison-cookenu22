@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import { UserDatabase } from "../data/UserDatabase";
 
 export class UserBusiness {
