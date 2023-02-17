@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
+import { UserDatabase } from "../data/UserDatabase";
 
 export class UserBusiness {
 
     // Cria o método createUser
     createUser = async (input: any): Promise<void> => {
         try {
-            const { name, email, password } = req.body
+            const { name, email, password } = input
 
             if (!name || !email || !password) {
                 throw new Error('Preencha os campos "name","email" e "password"')
@@ -17,15 +18,18 @@ export class UserBusiness {
 
             const id: string = Date.now().toString()
 
-            await insertUser({
+            // Cria instância
+            const userDatabase = new UserDatabase()
+
+            await userDatabase.insertUser({
                 id,
                 name,
                 email,
                 password
             })
+        } catch (error: any) {
+            throw new Error(error.message);
+
         }
     }
-} catch (error: any) {
-    throw new Error(error.message);
-
 }
