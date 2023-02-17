@@ -11,6 +11,10 @@ export class UserBusiness {
                 throw new Error('Preencha os campos "name","email" e "password"')
             }
 
+            if (password.length < 6) {
+                throw new Error("O password deve ter pelo menos seis caracteres")
+            }
+
             const id: string = Date.now().toString()
 
             await insertUser({
