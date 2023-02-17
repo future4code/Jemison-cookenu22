@@ -1,9 +1,10 @@
 import { app } from "./app"
-import { userRouter } from './routes/userRouter';
-import { taskRouter } from './routes/taskRouter';
+import { createUser } from './endpoints/createUser'
+import { createTask } from './endpoints/createTask'
 
 
-//Rotas para User
-app.use("/user",userRouter)
-//Rotas para User
-app.use("/task",taskRouter)
+app.post('/user', createUser)
+
+app.post('/task', createTask)
+
+
