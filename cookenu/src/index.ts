@@ -1,13 +1,9 @@
 import { app } from "./app";
-import { UserController } from "./controller/UserController";
-
-// import { createTask } from './endpoints/createTask'
-
-const userController = new UserController();
+import { userRouter } from "./routes/userRouter";
 
 
-app.post('/create/user', userController.createUser)
+// Rota para o user
+app.use("/", userRouter)
 
-// app.post('/task', createTask)
 
 
