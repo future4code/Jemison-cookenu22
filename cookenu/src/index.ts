@@ -3,7 +3,7 @@ import { userRouter } from "./routes/userRouter";
 
 
 // Rota para o user
-app.use("/user", userRouter)
+app.use("/", userRouter)
 
 
 
