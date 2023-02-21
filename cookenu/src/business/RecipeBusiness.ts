@@ -1,3 +1,4 @@
+import { RecipeDatabase } from "../data/RecipeDatabase";
 
 
 export class RecipeBusiness {
@@ -8,11 +9,12 @@ export class RecipeBusiness {
 
             const id: string = Date.now().toString()
 
+            const recipeDatabase = new RecipeDatabase
             await recipeDatabase.insertRecipe({
                 id,
                 title,
                 description,
-                createdAt
+                createdAt,
             })
         } catch (error: any) {
             throw new Error(error.messag);
