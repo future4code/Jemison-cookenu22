@@ -1,11 +1,12 @@
 import { app } from "./app";
 import { UserController } from "./controller/UserController";
+import { userRouter } from "./routes/userRouter";
 
 const userController = new UserController();
 
 
-app.post('/signup', userController.createUser)
-
+// Rota para o user
+app.use("/signup", userRouter)
 
 
 
