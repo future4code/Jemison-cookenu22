@@ -1,4 +1,5 @@
 import { UserDatabase } from "../data/UserDatabase";
+import { generateId } from "../services/idGenerator";
 
 export class UserBusiness {
 
@@ -15,7 +16,7 @@ export class UserBusiness {
                 throw new Error("O password deve ter pelo menos seis caracteres")
             }
 
-            const id: string = Date.now().toString()
+            const id: string = generateId()
 
             // Cria instância
             const userDatabase = new UserDatabase()
