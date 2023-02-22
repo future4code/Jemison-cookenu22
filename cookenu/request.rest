@@ -1,0 +1,18 @@
+POST http://localhost:3003/signup 
+Content-Type: application/json
+
+{
+"name": "Adriano Mendes",
+ "email": "adriano@email.com", 
+ "password": "123456"
+}
+
+###
+Post http://localhost:3003/recipe
+Content-Type: application/json
+
+{
+"title" : "SOPA CREMOSA DE COUVE-FLOR",
+"description" : "Bata, no liquidificador, a água, o leite, a farinha de trigo, a couve-flor cozida no vapor e o queijo cremoso por uns 3 minutos. Coloque numa panela funda e leve ao fogo, tempero com sal e pimenta a gosto. Mexa frequentemente até engrossar. Desligue o fogo e junte a noz-moscada e misture bem. Sirva em cumbuquinhas separadas colocando alguns cubos de queijo prata e o creme de couve-flor por cima. Polvilhe com cebolinha verde picada e sirva em seguida."
+}
+
