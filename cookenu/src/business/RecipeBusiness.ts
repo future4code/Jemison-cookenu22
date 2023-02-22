@@ -1,4 +1,5 @@
 import { RecipeDatabase } from "../data/RecipeDatabase";
+import { generateId } from "../services/idGenerator";
 
 
 export class RecipeBusiness {
@@ -7,7 +8,7 @@ export class RecipeBusiness {
         try {
             const { title, description, createdAt } = input;
 
-            const id: string = Date.now().toString()
+            const id: string = generateId()
 
             const recipeDatabase = new RecipeDatabase
             await recipeDatabase.insertRecipe({
@@ -17,7 +18,7 @@ export class RecipeBusiness {
                 createdAt,
             })
         } catch (error: any) {
-            throw new Error(error.messag);
+            throw new Error(error.message);
         }
     }
 }
