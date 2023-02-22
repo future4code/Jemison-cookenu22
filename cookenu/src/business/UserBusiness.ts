@@ -1,10 +1,11 @@
 import { UserDatabase } from "../data/UserDatabase";
+import { UserInputDTO } from "../model/userDTO";
 import { generateId } from "../services/idGenerator";
 
 export class UserBusiness {
 
     // Cria o método createUser
-    createUser = async (input: any): Promise<void> => {
+    createUser = async (input: UserInputDTO): Promise<void> => {
         try {
             const { name, email, password } = input
 
