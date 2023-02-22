@@ -4,9 +4,3 @@ export interface UserInputDTO {
     password: string
 }
 
-export interface InsertUserInputDTO {
-    id:string
-    name: string,
-    email: string,
-    password: string
-}
