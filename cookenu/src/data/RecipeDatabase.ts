@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { recipe } from "../types/recipe";
+import { recipe } from "../modules/recipe";
 
 export class RecipeDatabase extends BaseDatabase {
 
