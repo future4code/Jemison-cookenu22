@@ -1,5 +1,5 @@
 import { RecipeDatabase } from "../data/RecipeDatabase";
-import { RecipeInputDTO } from "../model/recipeDTO";
+import { InsertRecipeInputDTO, RecipeInputDTO } from "../model/recipeDTO";
 import { generateId } from "../services/idGenerator";
 
 
@@ -12,12 +12,15 @@ export class RecipeBusiness {
             const id: string = generateId()
 
             const recipeDatabase = new RecipeDatabase
-            await recipeDatabase.insertRecipe({
-                id,
-                title,
-                description,
-                createdAt,
-            })
+
+            const recipeInput: InsertRecipeInputDTO = {
+                id: id,
+                title: title,
+                description: description,
+                createdAt: createdAt
+            }
+
+            await recipeDatabase.insertRecipe(recipeInput)
         } catch (error: any) {
             throw new Error(error.message);
         }
