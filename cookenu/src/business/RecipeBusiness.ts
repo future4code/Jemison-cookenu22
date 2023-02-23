@@ -5,7 +5,7 @@ import { generateId } from "../services/idGenerator";
 
 export class RecipeBusiness {
 
-    createRecipe = async (input: RecipeInputDTO): Promise<void> => {
+    public createRecipe = async (input: RecipeInputDTO): Promise<void> => {
         try {
             const { title, description, createdAt } = input;
 
