@@ -2,6 +2,7 @@ import { UserDatabase } from "../data/UserDatabase";
 import { UserInputDTO } from "../model/userDTO";
 import { generateId } from "../services/idGenerator";
 
+
 export class UserBusiness {
 
     // Cria o método createUser
@@ -19,18 +20,20 @@ export class UserBusiness {
 
             const id: string = generateId()
 
-            // Cria instância
-            const userDatabase = new UserDatabase()
-
-            await userDatabase.insertUser({
+            const user = {
                 id,
                 name,
                 email,
                 password
-            })
+            }
+
+            // Cria instância
+            const userDatabase = new UserDatabase()
+
+            await userDatabase.insertUser(user)
         } catch (error: any) {
             throw new Error(error.message);
 
         }
     }
-}
+} 
