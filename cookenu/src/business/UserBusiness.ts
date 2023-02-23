@@ -1,5 +1,6 @@
 import { UserDatabase } from "../data/UserDatabase";
 import { CustomError } from "../error/CustomError";
+import { InvalidEmail, InvalidPassword } from "../error/UserErrors";
 import { UserInputDTO } from "../model/userDTO";
 import { generateId } from "../services/idGenerator";
 
@@ -15,8 +16,12 @@ export class UserBusiness {
                 throw new CustomError(400, 'Preencha os campos "name","email" e "password"')
             }
 
-            if (password.length < 6) {
-                throw new CustomError(400, "O password deve ter pelo menos seis caracteres")
+            if (password.length <= 6) {
+                throw new InvalidPassword()
+            }
+
+            if (!email.includes("@")) {
+                throw new InvalidEmail();
             }
 
             const id: string = generateId()
