@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-Post http://localhost:3003/recipe
+Post http://localhost:3003/create/recipe
 Content-Type: application/json
 
 {

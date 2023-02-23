@@ -1,23 +1,28 @@
 import { RecipeDatabase } from "../data/RecipeDatabase";
+import { InsertRecipeInputDTO, RecipeInputDTO } from "../model/recipeDTO";
+import { generateId } from "../services/idGenerator";
 
 
 export class RecipeBusiness {
 
-    createRecipe = async (input: any): Promise<void> => {
+    public createRecipe = async (input: RecipeInputDTO): Promise<void> => {
         try {
             const { title, description, createdAt } = input;
 
-            const id: string = Date.now().toString()
+            const id: string = generateId()
 
             const recipeDatabase = new RecipeDatabase
-            await recipeDatabase.insertRecipe({
-                id,
-                title,
-                description,
-                createdAt,
-            })
+
+            const recipeInput: InsertRecipeInputDTO = {
+                id: id,
+                title: title,
+                description: description,
+                createdAt: createdAt
+            }
+
+            await recipeDatabase.insertRecipe(recipeInput)
         } catch (error: any) {
-            throw new Error(error.messag);
+            throw new Error(error.message);
         }
     }
 }
