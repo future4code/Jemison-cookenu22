@@ -1,34 +1,44 @@
 import { UserDatabase } from "../data/UserDatabase";
+import { CustomError } from "../error/CustomError";
+import { InvalidEmail, InvalidPassword } from "../error/UserErrors";
+import { UserInputDTO } from "../model/userDTO";
+import { generateId } from "../services/idGenerator";
+
 
 export class UserBusiness {
 
     // Cria o método createUser
-    createUser = async (input: any): Promise<void> => {
+    createUser = async (input: UserInputDTO): Promise<void> => {
         try {
             const { name, email, password } = input
 
             if (!name || !email || !password) {
-                throw new Error('Preencha os campos "name","email" e "password"')
+                throw new CustomError(400, 'Preencha os campos "name","email" e "password"')
             }
 
-            if (password.length < 6) {
-                throw new Error("O password deve ter pelo menos seis caracteres")
+            if (password.length <= 6) {
+                throw new InvalidPassword()
             }
 
-            const id: string = Date.now().toString()
+            if (!email.includes("@")) {
+                throw new InvalidEmail();
+            }
 
-            // Cria instância
-            const userDatabase = new UserDatabase()
+            const id: string = generateId()
 
-            await userDatabase.insertUser({
+            const user = {
                 id,
                 name,
                 email,
                 password
-            })
-        } catch (error: any) {
-            throw new Error(error.message);
+            }
 
+            // Cria instância
+            const userDatabase = new UserDatabase()
+
+            await userDatabase.insertUser(user)
+        } catch (error: any) {
+            throw new CustomError(error.statusCode, error.message);
         }
     }
-}
+} 

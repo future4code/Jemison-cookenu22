@@ -1,18 +1,19 @@
 import { BaseDatabase } from "./BaseDatabase";
-import { recipe } from "../types/recipe";
+import { recipe } from "../model/recipe";
+import { InsertRecipeInputDTO } from "../model/recipeDTO";
+import { CustomError } from "../error/CustomError";
 
 export class RecipeDatabase extends BaseDatabase {
 
-    insertRecipe = async (recipe: recipe): Promise<void> => {
+    private recipeTable = 'Architeture_Recipe'
+
+    public insertRecipe = async (recipe: InsertRecipeInputDTO): Promise<void> => {
         try {
-            await RecipeDatabase.connection.insert({
-                id: recipe.id,
-                title: recipe.title,
-                description: recipe.description,
-                createdAt: recipe.createdAt
-            }).into('Architecture_Recipe')
+            RecipeDatabase.connection.initialize()
+            await RecipeDatabase.connection(this.recipeTable)
+                .insert(recipe)
         } catch (error: any) {
-            throw new Error(error.message)
+            throw new CustomError(error.statusCode, error.message)
         }
     }
 }
