@@ -1,6 +1,7 @@
 import { BaseDatabase } from "./BaseDatabase";
 import { recipe } from "../model/recipe";
 import { InsertRecipeInputDTO } from "../model/recipeDTO";
+import { CustomError } from "../error/CustomError";
 
 export class RecipeDatabase extends BaseDatabase {
 
@@ -12,7 +13,7 @@ export class RecipeDatabase extends BaseDatabase {
             await RecipeDatabase.connection(this.recipeTable)
                 .insert(recipe)
         } catch (error: any) {
-            throw new Error(error.message)
+            throw new CustomError(error.statusCode, error.message)
         }
     }
 }
