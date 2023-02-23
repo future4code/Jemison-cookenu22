@@ -18,7 +18,7 @@ export class RecipeController {
 
             res.status(201).send({ message: "Receita criada com sucesso!" })
         } catch (error: any) {
-            res.status(400).send(error.message)
+            res.status(error.statusCode || 400).send(error.message || error.sqlMessage)
         }
     }
 }
