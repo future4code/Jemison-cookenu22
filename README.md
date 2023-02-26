@@ -39,6 +39,10 @@ git clone https://github.com/future4code/Jemison-cookenu22
 
 ![image](https://user-images.githubusercontent.com/99361183/221412051-0949fe72-e114-49e9-9cae-9f2b3f4b3397.png)
 
+## O que Funciona
+
+- O endpoint que cria o usuário
+
 ## Desenvolvedor
 
 - [Rafael Lopes](https://www.github.com/rafix923)
