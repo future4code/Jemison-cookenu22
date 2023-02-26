@@ -11,7 +11,7 @@ export class RecipeBusiness {
 
             const id: string = generateId()
 
-            const recipeDatabase = new RecipeDatabase
+            const recipeDatabase = new RecipeDatabase()
 
             const recipeInput: InsertRecipeInputDTO = {
                 id: id,
