@@ -16,7 +16,7 @@ export class UserBusiness {
                 throw new CustomError(400, 'Preencha os campos "name","email" e "password"')
             }
 
-            if (password.length <= 6) {
+            if (password.length < 6) {
                 throw new InvalidPassword()
             }
 
