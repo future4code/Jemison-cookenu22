@@ -2,35 +2,47 @@
 
 ## Documentação da API
 
+https://documenter.getpostman.com/view/22348177/2s93CPrCUc
+
 ## Tecnologias utilizadas
 
-## Deploy
+- TypeScript
+- Node.JS
+- Express.JS
+
+## Deploy no render
+
+https://cookenu-22.onrender.com
 
 ## Como rodar o Projeto Localmente
 
-<!-- Clone the project
+- Clone o projeto no seu editor de códigos
 
-```bash
-  git clone https://link-to-project
-```
+git clone https://github.com/future4code/Jemison-cookenu22
 
-Go to the project directory
+- Vá até o diretório do projeto
 
-```bash
-  cd my-project
-```
+  cd cookenu
 
-Install dependencies
+- Instale as dependências pelo gitBash
 
-```bash
   npm install
-```
 
-Start the server
+- Inicie o servidor
 
-```bash
-  npm run start -->
-```
+  npm run start
+
+## O que não Funciona
+
+- O endpoint que cria uma nova receita
+- O link do render. Não consegui entender como concertar o erro que ele está demonstrando:
+
+![image](https://user-images.githubusercontent.com/99361183/221412051-0949fe72-e114-49e9-9cae-9f2b3f4b3397.png)
+
+## O que Funciona
+
+- O endpoint que cria o usuário
+
 ## Desenvolvedor
 
 - [Rafael Lopes](https://www.github.com/rafix923)
